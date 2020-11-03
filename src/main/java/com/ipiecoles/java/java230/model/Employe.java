@@ -3,10 +3,16 @@ package com.ipiecoles.java.java230.model;
 import org.hibernate.annotations.Type;
 import org.joda.time.LocalDate;
 
+import javax.persistence.*;
 import java.util.Objects;
 
-public abstract class Employe {
 
+@Entity
+@Table(name = "employe")
+public /*abstract*/ class Employe {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
 	private String nom;
@@ -15,7 +21,7 @@ public abstract class Employe {
 
 	private String matricule;
 
-	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
+	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDate") //parceque c'est pas une library standard
 	private LocalDate dateEmbauche;
 	
 	private Double salaire = Entreprise.SALAIRE_BASE;
@@ -40,7 +46,7 @@ public abstract class Employe {
 		return Entreprise.NB_CONGES_BASE;
 	}
 	
-	public abstract Double getPrimeAnnuelle();
+//	public abstract Double getPrimeAnnuelle();
 
 	public void augmenterSalaire(Double pourcentage) {
 		this.salaire = this.getSalaire() * (1 + pourcentage);
