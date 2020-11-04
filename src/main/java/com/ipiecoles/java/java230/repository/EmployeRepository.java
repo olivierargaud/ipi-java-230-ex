@@ -29,43 +29,43 @@ public interface EmployeRepository extends PagingAndSortingRepository<Employe, L
     List<Employe> findByDateEmbaucheAfter(LocalDate date);
 
     List<Employe> findBySalaireGreaterThanOrderBySalaireDesc(Double salaire);
-
-
-//    version qui valide les tests mais fonctione pas
-//    @Query("select e from Employe e where lower(e.prenom) = lower(:nomOuPrenom) or lower(e.nom) = lower(:nomOuPrenom)")
-//    List<Employe> findByNomOrPrenomAllIgnoreCase(@Param("toto") String nomOuPrenom);
-
-
-//    corection
-
+//
+//
+////    version qui valide les tests mais fonctione pas
+////    @Query("select e from Employe e where lower(e.prenom) = lower(:nomOuPrenom) or lower(e.nom) = lower(:nomOuPrenom)")
+////    List<Employe> findByNomOrPrenomAllIgnoreCase(@Param("toto") String nomOuPrenom);
+//
+//
+////    corection
+//
     @Query("select e from Employe e where lower(e.prenom) = lower(:nomOuPrenom) or lower(e.nom) = lower(:nomOuPrenom)")
     List<Employe> findByNomOrPrenomAllIgnoreCase(@Param("nomOuPrenom") String nomOuPrenom);
-
-
-
-
-
-
-
-
-
-////    ma version en list fonctionne
-//    @Query("from Employe where nom = lower(:toto) or prenom= lower(:toto)")
-//    List<Employe> findByNomOrPrenomAllIgnoreCase(@Param("toto") String nomOuPrenom);
 //
-////    ma version en page fonctionne pas
-//    @Query("from Employe where nom = lower(:toto) or prenom= lower(:toto)")
-//    Page<Employe> findByNomOrPrenomAllIgnoreCase(@Param("toto") String nomOuPrenom, Pageable pageable);
-
-
-
-//    @Query(value = "SELECT * FROM Employe WHERE salaire>2480", nativeQuery = true)
-//    List<Employe> findEmployePlusRiches();
-
-
-//  correction
-    @Query(value = "SELECT * FROM Employe WHERE salaire > (SELECT avg(e2.salaire)FROM Employe e2)", nativeQuery = true)
-    List<Employe> findEmployePlusRiches();
+//
+//
+//
+//
+//
+//
+//
+//
+//////    ma version en list fonctionne
+////    @Query("from Employe where nom = lower(:toto) or prenom= lower(:toto)")
+////    List<Employe> findByNomOrPrenomAllIgnoreCase(@Param("toto") String nomOuPrenom);
+////
+//////    ma version en page fonctionne pas
+////    @Query("from Employe where nom = lower(:toto) or prenom= lower(:toto)")
+////    Page<Employe> findByNomOrPrenomAllIgnoreCase(@Param("toto") String nomOuPrenom, Pageable pageable);
+//
+//
+//
+////    @Query(value = "SELECT * FROM Employe WHERE salaire>2480", nativeQuery = true)
+////    List<Employe> findEmployePlusRiches();
+//
+//
+////  correction
+    @Query(value = "SELECT * FROM Employe WHERE salaire > (SELECT avg(e2.salaire) FROM Employe e2)", nativeQuery = true)
+    List<Employe> findEmployesPlusRiches();
 
 
 }

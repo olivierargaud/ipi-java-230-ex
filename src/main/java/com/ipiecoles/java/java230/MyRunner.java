@@ -52,15 +52,15 @@ public class MyRunner implements CommandLineRunner
 //
 //
 //        // test recherche par matricule
-        Employe emp1 = employeRepository.findByMatricule("C00004");
-        if (emp1 !=null)
-        {
-            System.out.println(emp1);
-        }
-        else
-        {
-            System.out.println("pas d'employé avec ce matricule");
-        }
+//        Employe emp1 = employeRepository.findByMatricule("C00004");
+//        if (emp1 !=null)
+//        {
+//            System.out.println(emp1);
+//        }
+//        else
+//        {
+//            System.out.println("pas d'employé avec ce matricule");
+//        }
 //
 //        // test recherche par nom et prenom
 //        List<Employe> employeList =employeRepository.findByNomAndPrenom("Andre","Alexandre");
@@ -90,11 +90,11 @@ public class MyRunner implements CommandLineRunner
 
 
 //        // test recherche par nom ou prenom
-        List<Employe> employeList3 =employeRepository.findByNomOrPrenomAllIgnoreCase("Julien");
-        for(Employe employe3: employeList3)
-        {
-            System.out.println(employe3.toString());
-        }
+//        List<Employe> employeList3 =employeRepository.findByNomOrPrenomAllIgnoreCase("Julien");
+//        for(Employe employe3: employeList3)
+//        {
+//            System.out.println(employe3.toString());
+//        }
 
         // test recherche par nom ou prenom paginé
 //        PageRequest pageRequest3 = PageRequest.of(0,5);
@@ -104,16 +104,16 @@ public class MyRunner implements CommandLineRunner
 //        }
 
 
-
-
-        List<Employe>  emp4 = employeRepository.findEmployePlusRiches();
-        for(Employe employe4: emp4)
-        {
-            System.out.println(employe4.toString());
-        }
-
-
-
+//
+//
+//        List<Employe>  emp4 = employeRepository.findEmployePlusRiches();
+//        for(Employe employe4: emp4)
+//        {
+//            System.out.println(employe4.toString());
+//        }
+//
+//
+//
 
 
 
