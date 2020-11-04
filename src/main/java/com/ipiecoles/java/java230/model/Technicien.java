@@ -3,10 +3,7 @@ package com.ipiecoles.java.java230.model;
 import com.ipiecoles.java.java230.exceptions.TechnicienException;
 import org.joda.time.LocalDate;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
@@ -15,6 +12,7 @@ public class Technicien extends Employe implements Comparable<Technicien> {
 
 
 	@ManyToOne
+//	@ManyToOne(cascade = CascadeType.REMOVE)  // exemple pour gerer les suppressions
 	@JoinColumn( name = "manager_id" )
 	private Manager manager;
 
